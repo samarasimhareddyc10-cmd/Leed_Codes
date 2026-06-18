@@ -1,0 +1,17 @@
+class Solution:
+    def maxSubarraySumCircular(self, nums: List[int]) -> int:
+        cma=nums[0]
+        cmi=nums[0]
+        x=nums[0]
+        y=nums[0]
+        tot=nums[0]
+        for i in range(1,len(nums)):
+            cma=max(nums[i],cma+nums[i])
+            cmi=min(nums[i],cmi+nums[i])
+            x=max(cma,x)
+            y=min(cmi,y)
+            tot=tot+nums[i]
+            z=tot-y
+        if x<0:
+            return x
+        return max(x,z)
