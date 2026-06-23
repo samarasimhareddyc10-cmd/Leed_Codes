@@ -1,0 +1,13 @@
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        if n<2:
+            return 0
+        ip=[True]*n
+        ip[0]=ip[1]=False
+        i=2
+        while i*i<n:
+            if ip[i]:
+                for j in range(i*i,n,i):
+                    ip[j]=False
+            i=i+1
+        return sum(ip)
