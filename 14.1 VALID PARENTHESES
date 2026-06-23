@@ -1,0 +1,11 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        st=[]
+        b={')':'(','}':'{',']':'['}
+        for i in s:
+            if(i in b.values()):
+                st.append(i)
+            else:
+                if(not st or b[i]!=st.pop()):
+                    return False
+        return len(st)==0
